@@ -13,11 +13,11 @@ const startStopBtnRef = document.getElementById("start-stop-button");
 startStopBtnRef.addEventListener("click", () => {
     if (timer.isRunning) {
         this.isRunning = false;
-        this.innerHTML = "Start";
+        startStopBtnRef.innerHTML = "Start";
         stop();
     } else {
         this.isRunning = true;
-        this.innerHTML = "Stop";
+        startStopBtnRef.innerHTML = "Stop";
         start();
     }
 });
@@ -47,7 +47,7 @@ function start() {
 }
 
 function stop() {
-    timer.stop();
+    timer.isRunning = false;
     clearInterval(updateTextInterval);
     updateTextInterval = null;
 }
